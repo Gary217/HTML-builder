@@ -1,9 +1,9 @@
 const fs = require('fs');
 const readline = require('readline');
 
-const fileStream = fs.createWriteStream('./02-write-file/output.txt', { flags: 'a' });
+const writeStream = fs.createWriteStream('./02-write-file/text.txt', { flags: 'a' });
 
-const rl = readline.createInterface({
+const readLine = readline.createInterface({
 	input: process.stdin,
 	output: process.stdout
 });
@@ -18,15 +18,15 @@ const questions = [
 let currentQuestion = 0;
 console.log(questions[currentQuestion]);
 
-rl.on('line', (input) => {
+readLine.on('line', (input) => {
 
 	if (input.toLowerCase() === 'exit') {
 		console.log('Всего доброго!');
-		fileStream.end();
+		writeStream.end();
 		process.exit();
 	}
 
-	fileStream.write(`${input}\n`);
+	writeStream.write(`${input}\n`);
 	currentQuestion++;
 
 	if (currentQuestion < questions.length) {
@@ -38,8 +38,8 @@ rl.on('line', (input) => {
 	}
 });
 
-rl.on('SIGINT', () => {
+readLine.on('SIGINT', () => {
 	console.log('Всего доброго!');
-	fileStream.end();
+	writeStream.end();
 	process.exit();
 });
