@@ -6,7 +6,7 @@ const distPath = path.join(__dirname, 'project-dist');
 const bundlePath = path.join(distPath, 'bundle.css');
 
 if (!fs.existsSync(distPath)) {
-  fs.mkdirSync(distPath);
+	fs.mkdirSync(distPath);
 }
 
 const filesList = fs.readdirSync(stylesPath);
