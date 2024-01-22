@@ -1,7 +1,7 @@
 const fs = require('fs');
 const readline = require('readline');
 
-const writeStream = fs.createWriteStream('./02-write-file/text.txt', { flags: 'a' });
+const writeStream = fs.createWriteStream('./02-write-file/text.txt', {flags: 'a'});
 
 const readLine = readline.createInterface({
 	input: process.stdin,
@@ -9,10 +9,10 @@ const readLine = readline.createInterface({
 });
 
 const questions = [
-	"Кто проживает на дне океана?",
-	"Желтая губка, малыш без изъяна",
+	"Приветствую! Кто проживает на дне океана?",
+	"Желтая губка, малыш без изъяна!",
 	"Кто побеждает всегда и везде?",
-	"Кто также ловок как рыба в воде?"
+	"Кто также ловок как рыба в воде?!"
 ];
 
 let currentQuestion = 0;
